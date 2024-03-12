@@ -1,18 +1,17 @@
-# EXPERIMENT-NO--04-Distance measurement using Ultrasonic sensor
+## Exp-4 Distance measurement using Ultrasonic sensor
 ### Date:12/03/2024
 ### Name:Bala R
 ### Rollnumber:212222220007
 ### Department:B.Tech IT
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
- 
+
 ### COMPONENTS REQUIRED:
 1.	ultrasonic sensor module HC-SR04
 2.	1 KΩ resistor 
 3.	Arduino Uno 
 4.	USB Interfacing cable 
 5.	Connecting wires 
-
 
 ### THEORY: 
 The HC-SR04 ultrasonic sensor uses SONAR to determine the distance of an object just like the bats do. It offers excellent non-contact range detection with high accuracy and stable readings in an easy-to-use package from 2 cm to 400 cm or 1” to 13 feet.
@@ -38,12 +37,10 @@ distance to an object = ((speed of sound in the air)*time)/2
 speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
-
-
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
-
-
-
+### Distance vs measurement table 
+![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+Average error = sum/ number of readings
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
 2.	Connect the board to your computer via the USB cable.
@@ -56,49 +53,54 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 9.	Ensure safety before powering up the device 
 10.	Plot the graph for the output voltage vs the resistance 
 
-
 ### PROGRAM 
 ```
+int echopin=6;
+int trigpin=7;
+int red=8;
+int green=9;
+long duration;
+float distance;
+void setup()
+{
+  pinMode(echopin,INPUT);
+  pinMode(trigpin,OUTPUT);
+  pinMode(red,OUTPUT);
+  pinMode(green,OUTPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(10);
+  digitalWrite(trigpin,HIGH);
+  delay(10);
+  digitalWrite(trigpin,LOW);
+  duration=pulseIn(echopin,HIGH);
+  distance=duration*0.034/2;
+  Serial.print("distance=");
+  Serial.print(distance);
+  Serial.println("cms");
+  if(distance>50)
+  {
+    digitalWrite(green,HIGH);
+    delay(500);
+    digitalWrite(green,LOW);
+    delay(500);
+  }
+}
 
+```
+### Output: 
+![2024-03-12 (1)](https://github.com/balar2004/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118791778/c7b327d8-51e2-45d8-bbf9-dcd3b6917d91)
+## Sematic Diagram:
+![Bala R 212222220007](https://github.com/balar2004/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118791778/7a27709b-c399-42b1-a599-525202c27201)
+## Table:
+![0001](https://github.com/balar2004/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118791778/4f8a8433-d140-4091-ab21-7783819a3f30)
+## Graph:
+![0002](https://github.com/balar2004/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/118791778/1401fbb1-38e8-4415-8d4d-f9c7083a7039)
+	Average error = sum/ number of readings
+ 	0.12+0.13+0.41+0.65+0.68/5 = 0.398
 
-
-
-
-
-
-
-
-
-`````````
-
-
-### Distance vs measurement table 
-
-			
- 
-			
-			
-			
-
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
-
-
-
-
-
-
-
-
-### RESULTS
-
-
-
- 
+### RESULTS:
+Hence the interface of an ultrasonic pair and measurement of the distance in centimeters,calculation of the error was found.
