@@ -39,7 +39,7 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 ### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
 ### Distance vs measurement table 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)\n
 Average error = sum/ number of readings
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
